@@ -78,3 +78,26 @@ jp.grant_gas = function()
     memory.write_u8(0x00029B, 57)
     memory.write_u8(0x00029D, 41)
 end
+
+jp.grant_nublar_utility_shed_south_battery = function()
+    memory.write_u8(0x000269, 255) -- Grants battery to player
+    memory.write_u8(0x00026A, 255) -- Unknown, changes when battery is picked up
+    memory.write_u8(0x001DE8, 255) -- Unknown, changes when battery is picked up
+    memory.write_u8(0x00C635, 255) -- Removes battery from map when value > 127
+end
+
+jp.activate_power_generator = function()
+    -- Activate power generator. To disable, set to 0
+    memory.write_u16_le(0x00026B, 65535)
+
+    -- Switches the graphic on the power panel to show it has been activated.
+    -- This is set to 218 automatically when the power generator is turned on,
+    -- but will not revert to 212 if the power generator is disabled. In normal
+    -- gameplay, the power generator is never disabled once turned on.
+    memory.write_u8(0x01314D, 218)
+end
+
+jp.disable_power_generator = function()
+    memory.write_u16_le(0x00026B, 0) -- Disable power generator
+    memory.write_u8(0x01314D, 212) -- Set power panel graphic to not activated
+end
