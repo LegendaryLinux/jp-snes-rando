@@ -5,7 +5,7 @@ jp.eggs = {
     -- Egg addresses have a u8 value of 0 if collected, 10 otherwise
     fake_trex_egg = 0x0031C0,
     south_hill_egg = 0x0031BE,
-    western_mountain_egg = 0x0031C4, -- TODO: Double check this
+    western_mountain_egg = 0x0031C4,
     shock_trap_egg = 0x0031BA,
     deep_jungle_egg = 0x0031BC,
     west_trike_egg = 0x0031B8,
