@@ -1,6 +1,6 @@
 # Jurassic Park (SNES) Walkthrough
 
-1. South Utility Shed
+1. Nublar Utility Shed
    1. Acquire Battery (0F)
    2. Turn on Power Generator (0F)
    
@@ -24,7 +24,13 @@
    6. Acquire Alan Grant's ID Card (0F)
 
 5. Raptor Paddock
-   1. Acquire Battery (0F)
-   2. Acquire Ian Malcolm's ID Card (1F)
-   3. Acquire Robert Muldoon's ID Card (B1)
-   4. Push crate in front of door (B2)
+   1. Acquire Battery (Ground Level)
+   2. Acquire Ian Malcolm's ID Card (Upper Level)
+   3. Acquire Robert Muldoon's ID Card (Sub Level 1)
+   4. Push crate in front of door (Sub Level 2)
+
+6. Nublar Utility Shed
+   1. Acquire Robert Gennaro's ID Card (location? B1?)
+
+7. Beach Utility Shed
+   1. Acquire Ray Arnold's ID Card

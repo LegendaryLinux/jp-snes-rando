@@ -2,10 +2,10 @@ jp = {}
 
 jp.eggs_remaining_address = 0x000E0F
 jp.eggs = {
-    -- Egg addresses have a value of 0 if collected, 10 otherwise
+    -- Egg addresses have a u8 value of 0 if collected, 10 otherwise
     fake_trex_egg = 0x0031C0,
     south_hill_egg = 0x0031BE,
-    southern_mountain_egg = 0x0031C4,
+    western_mountain_egg = 0x0031C4, -- TODO: Double check this
     shock_trap_egg = 0x0031BA,
     deep_jungle_egg = 0x0031BC,
     west_trike_egg = 0x0031B8,
@@ -191,4 +191,84 @@ jp.revoke_alan_grant = function()
     memory.write_u16_le(0x000259, 0) -- Remove ID card from player
     memory.write_u8(0x00B95B, 0) -- Place ID card back on the floor
     memory.write_u8(0x00B95C, 2) -- Place ID card back on the floor
+end
+
+jp.grant_ian_malcolm = function()
+    memory.write_u16_le(0x00B52C, 65535) -- Grant ID card to player
+    memory.write_u8(0x000264, 255) -- Remove ID card from floor
+    memory.write_u8(0x00B52E, 42) -- Remove ID card from floor
+end
+
+jp.revoke_ian_malcolm = function()
+    memory.write_u16_le(0x00B52C, 255) -- Remove ID card from player
+    memory.write_u8(0x000264, 0) -- Place ID card back on the floor
+    memory.write_u8(0x00B52E, 2) -- Place ID card back on the floor
+end
+
+jp.grant_robert_muldoon = function()
+    memory.write_u16_le(0x00D9B0, 65535) -- Grant ID card to player
+    memory.write_u8(0x000258, 255) -- Remove ID card from floor
+    memory.write_u8(0x00D9B2, 42) -- Remove ID card from floor
+end
+
+jp.revoke_robert_muldoon = function()
+    memory.write_u16_le(0x00D9B0, 255) -- Remove ID card from player
+    memory.write_u8(0x000258, 0) -- Place ID card back on the floor
+    memory.write_u8(0x00D9B2, 2) -- Place ID card back on the floor
+end
+
+jp.grant_donald_gennaro = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 65535) -- Grant ID card to player
+    -- memory.write_u8(0x000000, 255) -- Remove ID card from floor
+    -- memory.write_u8(0x000000, 42) -- Remove ID card from floor
+end
+
+jp.revoke_donald_gennaro = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 0) -- Remove ID card from player
+    -- memory.write_u8(0x000000, 0) -- Place ID card back on the floor
+    -- memory.write_u8(0x000000, 2) -- Place ID card back on the floor
+end
+
+jp.grant_ray_arnold = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 65535) -- Grant ID card to player
+    -- memory.write_u8(0x000000, 255) -- Remove ID card from floor
+    -- memory.write_u8(0x000000, 42) -- Remove ID card from floor
+end
+
+jp.revoke_ray_arnold = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 0) -- Remove ID card from player
+    -- memory.write_u8(0x000000, 0) -- Place ID card back on the floor
+    -- memory.write_u8(0x000000, 2) -- Place ID card back on the floor
+end
+
+jp.grant_henry_wu = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 65535) -- Grant ID card to player
+    -- memory.write_u8(0x000000, 255) -- Remove ID card from floor
+    -- memory.write_u8(0x000000, 42) -- Remove ID card from floor
+end
+
+jp.revoke_henry_wu = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 0) -- Remove ID card from player
+    -- memory.write_u8(0x000000, 0) -- Place ID card back on the floor
+    -- memory.write_u8(0x000000, 2) -- Place ID card back on the floor
+end
+
+jp.grant_ellie_sattler = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 65535) -- Grant ID card to player
+    -- memory.write_u8(0x000000, 255) -- Remove ID card from floor
+    -- memory.write_u8(0x000000, 42) -- Remove ID card from floor
+end
+
+jp.revoke_ellie_sattler = function()
+    -- TODO: Find memory addresses
+    -- memory.write_u16_le(0x000000, 0) -- Remove ID card from player
+    -- memory.write_u8(0x000000, 0) -- Place ID card back on the floor
+    -- memory.write_u8(0x000000, 2) -- Place ID card back on the floor
 end
