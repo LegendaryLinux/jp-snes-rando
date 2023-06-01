@@ -3,12 +3,18 @@
 - 0F
   - X
 
-# South Utility Shed
+# Nublar Utility Shed
 - 0F
   - Battery
   - Computer
   - Generator
   - Dark Room
+  - Elevator (0F - Sub Level)
+- Sub Level
+  - Dark Room
+    - 3 Items
+  - Ian Malcolm's ID Card Door
+    - Donald Gennaro's ID Card
 
 # Beach Utility Shed
 - 0F

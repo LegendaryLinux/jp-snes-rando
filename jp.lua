@@ -23,7 +23,7 @@ end
 
 jp.open_gate_2 = function()
     memory.write_u8(0x00024D, 0)
-    memory.write_u8(0x00024F, 0)
+    memory.write_u8(0x00024F, 1)
     memory.write_u8(0x000251, 0)
 end
 
@@ -118,17 +118,13 @@ end
 jp.activate_power_generator = function()
     -- Activate power generator. To disable, set to 0
     memory.write_u16_le(0x00026B, 65535)
-
-    -- Switches the graphic on the power panel to show it has been activated.
-    -- This is set to 218 automatically when the power generator is turned on,
-    -- but will not revert to 212 if the power generator is disabled. In normal
-    -- gameplay, the power generator is never disabled once turned on.
-    memory.write_u8(0x01314D, 218)
 end
 
 jp.disable_power_generator = function()
+    -- The graphic for lit power panel will remain active if the player
+    -- is in the room when this function is run. Entering the building
+    -- will cause the graphic to display properly
     memory.write_u16_le(0x00026B, 0) -- Disable power generator
-    memory.write_u8(0x01314D, 212) -- Set power panel graphic to not activated
 end
 
 jp.open_all_gates = function()
@@ -141,17 +137,20 @@ end
 --     Night vision goggles      --
 -----------------------------------
 jp.grant_battery_temp = function()
-    memory.write_u16_le(0x000269, 65535) -- Grants battery for current building
+    -- Grants battery for current building
+    memory.write_u16_le(0x000269, 65535)
 end
 
-jp.grant_south_utility_shed_battery = function()
-    memory.write_u8(0x001DE8, 255) -- Determines if the battery has been acquired in this building
-    memory.write_u8(0x00C635, 255) -- Removes battery from map when value > 127
+jp.grant_nublar_utility_shed_battery = function()
+    -- Grant battery to the player. If the player is in the building when they receive it,
+    -- they will need to leave and re-enter
+    memory.write_u8(0x001DE8, 255)
 end
 
 jp.grant_beach_utility_shed_battery = function()
-    memory.write_u8(0x001DE6, 255) -- Determines if the battery has been acquired in this building
-    memory.write_u8(0x00C3A5, 255) -- Removes battery from map when value > 127
+    -- Grant battery to the player. If the player is in the building when they receive it,
+    -- they will need to leave and re-enter
+    memory.write_u8(0x001DE6, 255)
 end
 
 -----------------------------------
@@ -165,20 +164,18 @@ end
 
 jp.revoke_dennis_nedry = function()
     memory.write_u16_le(0x00025F, 0) -- Remove ID card from player
-    memory.write_u8(0x00B179, 0) -- Place ID card back on the floor
-    memory.write_u8(0x00B17A, 2) -- Place ID card back on the floor
 end
 
 jp.grant_john_hammond = function()
     memory.write_u16_le(0x008862, 65535) -- Grant ID card to player
-    memory.write_u8(0x000253, 1) -- Remove ID card from floor
-    memory.write_u8(0x003246, 0) -- Remove ID card from floor
+    memory.write_u8(0x000253, 1) -- Remove ID card from ground
+    memory.write_u8(0x003246, 0) -- Remove ID card from ground
 end
 
 jp.revoke_john_hammond = function()
     memory.write_u16_le(0x008862, 0) -- Remove ID card from player
-    memory.write_u8(0x000253, 0) -- Place ID card back on the floor
-    memory.write_u8(0x003246, 16) -- Place ID card back on the floor
+    memory.write_u8(0x000253, 0) -- Place ID card back on the ground
+    memory.write_u8(0x003246, 16) -- Place ID card back on the ground
 end
 
 jp.grant_alan_grant = function()
@@ -218,17 +215,15 @@ jp.revoke_robert_muldoon = function()
 end
 
 jp.grant_donald_gennaro = function()
-    -- TODO: Find memory addresses
-    -- memory.write_u16_le(0x000000, 65535) -- Grant ID card to player
-    -- memory.write_u8(0x000000, 255) -- Remove ID card from floor
-    -- memory.write_u8(0x000000, 42) -- Remove ID card from floor
+    memory.write_u16_le(0x00B5C2, 65535) -- Grant ID card to player
+    memory.write_u8(0x00025C, 255) -- Remove ID card from floor
+    memory.write_u8(0x00B5C4, 42) -- Remove ID card from floor
 end
 
 jp.revoke_donald_gennaro = function()
-    -- TODO: Find memory addresses
-    -- memory.write_u16_le(0x000000, 0) -- Remove ID card from player
-    -- memory.write_u8(0x000000, 0) -- Place ID card back on the floor
-    -- memory.write_u8(0x000000, 2) -- Place ID card back on the floor
+    memory.write_u16_le(0x00B5C2, 255) -- Remove ID card from player
+    memory.write_u8(0x00025C, 0) -- Place ID card back on the floor
+    memory.write_u8(0x00B5C4, 2) -- Place ID card back on the floor
 end
 
 jp.grant_ray_arnold = function()

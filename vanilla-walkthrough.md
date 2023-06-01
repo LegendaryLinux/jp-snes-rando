@@ -30,7 +30,7 @@
    4. Push crate in front of door (Sub Level 2)
 
 6. Nublar Utility Shed
-   1. Acquire Robert Gennaro's ID Card (location? B1?)
+   1. Acquire Donald Gennaro's ID Card (Sub Level)
 
 7. Beach Utility Shed
    1. Acquire Ray Arnold's ID Card
